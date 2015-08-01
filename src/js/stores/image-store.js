@@ -1,3 +1,5 @@
+var EventEmitter = require('events').EventEmitter;
+
 var ImageConstants  = require('../constants/image-constants');
 var ImageDispatcher = require('../dispatchers/image-dispatcher');
 
@@ -7,12 +9,19 @@ var CHANGE_EVENT = "change";
 
 var images = [];
 
-function _addImage (image) {
+function addImage (image) {
   images.push(image);
 }
 
-function _removeImage (index) {
+function removeImage (index) {
   images.slice(index, 1);
+}
+
+function createImage (url) {
+  return {
+    url: url,
+    id: images.length
+  };
 }
 
 var ImageStore = _.assign({}, EventEmitter.prototype, {
@@ -36,10 +45,13 @@ var ImageStore = _.assign({}, EventEmitter.prototype, {
     var action = payload.action;
     switch (action.actionType) {
       case ImageConstants.ADD_IMAGE:
-        _addImage(payload.action.image);
+        addImage(payload.action.image);
         break;
       case ImageConstants.REMOVE_IMAGE:
-        _removeImage(payload.action.index);
+        removeImage(payload.action.index);
+        break;
+      case ImageConstants.ADD_IMAGE_URL:
+        addImage(createImage(payload.action.url));
         break;
       default:
         throw new Error("Invalid event");
@@ -50,3 +62,5 @@ var ImageStore = _.assign({}, EventEmitter.prototype, {
   })
 
 });
+
+module.exports = ImageStore;
