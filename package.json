@@ -1,0 +1,26 @@
+{
+  "name": "react-flux-browserify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^11.0.1",
+    "flux": "^2.0.3",
+    "gulp": "^3.9.0",
+    "keymirror": "^0.1.1",
+    "lodash": "^3.10.0",
+    "react": "^0.13.3",
+    "react-async": "^2.1.0",
+    "react-router-component": "^0.26.0",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "jest-cli": "^0.4.17"
+  }
+}
