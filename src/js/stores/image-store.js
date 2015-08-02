@@ -1,7 +1,7 @@
 var EventEmitter = require('events').EventEmitter;
 
-var ImageConstants  = require('../constants/image-constants');
-var ImageDispatcher = require('../dispatchers/image-dispatcher');
+var ImageConstants = require('../constants/image-constants');
+var AppDispatcher  = require('../app-dispatcher');
 
 var _ = require('lodash');
 
@@ -50,7 +50,7 @@ var ImageStore = _.assign({}, EventEmitter.prototype, {
     });
   },
 
-  dispatcherIndex: ImageDispatcher.register(function(payload) {
+  dispatcherIndex: AppDispatcher.register(function(payload) {
     var action = payload.action;
     switch (action.actionType) {
       case ImageConstants.ADD_IMAGE:

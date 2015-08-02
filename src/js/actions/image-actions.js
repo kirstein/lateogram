@@ -1,23 +1,23 @@
-var ImageConstants  = require('../constants/image-constants');
-var ImageDispatcher = require('../dispatchers/image-dispatcher');
+var ImageConstants = require('../constants/image-constants');
+var AppDispatcher  = require('../app-dispatcher');
 
 var ImageActions = {
   addImageByUrl: function(url) {
-    ImageDispatcher.handleViewAction({
+    AppDispatcher.handleViewAction({
       actionType: ImageConstants.ADD_IMAGE_URL,
       url: url
     });
   },
   
   addImage: function(image) {
-    ImageDispatcher.handleViewAction({
+    AppDispatcher.handleViewAction({
       actionType: ImageConstants.ADD_IMAGE,
       image: image
     });
   },
 
   removeImage: function(image) {
-    ImageDispatcher.handleViewAction({
+    AppDispatcher.handleViewAction({
       actionType: ImageConstants.REMOVE_IMAGE,
       index: image.index
     });
