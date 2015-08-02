@@ -41,6 +41,15 @@ var ImageStore = _.assign({}, EventEmitter.prototype, {
     return images;
   },
 
+  getImageById: function(id) {
+    if (_.isUndefined(id)) {
+      throw new Error("No image ID defined");
+    }
+    return _.find(this.getImages(), function(image) {
+      return image.id === id;
+    });
+  },
+
   dispatcherIndex: ImageDispatcher.register(function(payload) {
     var action = payload.action;
     switch (action.actionType) {
