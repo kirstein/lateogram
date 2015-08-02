@@ -1,10 +1,19 @@
 var React = require('react');
+
+var ImageActions = require('../../actions/image-actions');
   
 var GalleryImage = React.createClass({
   render: function() {
     return (
-      <img src={this.props.url} alt="img" />
+      <section>
+        <img src={this.props.image.url} alt="img" />
+        <button onClick={this.onClick}>X</button>
+      </section>
     );
+  },
+
+  onClick: function() {
+    ImageActions.removeImage(this.props.image);
   }
 });
 

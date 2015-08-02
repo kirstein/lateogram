@@ -15,7 +15,7 @@ var Gallery = React.createClass({
 
   render: function() {
     var images = this.state.images.map(function(image) {
-      return <GalleryImage key={image.id} url={image.url} />;
+      return <GalleryImage key={image.id} image={image} />;
     });
     return (
       <div>

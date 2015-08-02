@@ -19,7 +19,7 @@ var ImageActions = {
   removeImage: function(image) {
     AppDispatcher.handleViewAction({
       actionType: ImageConstants.REMOVE_IMAGE,
-      index: image.index
+      index: image.id
     });
   }
 };

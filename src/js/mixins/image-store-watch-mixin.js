@@ -14,7 +14,7 @@ module.exports = function (cb) {
       ImageStore.removeChangeListener(this._onChange);
     },
     _onChange: function() {
-      this.setState(this);
+      this.setState(cb(this));
     }
   };
 };

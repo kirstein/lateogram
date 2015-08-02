@@ -7,20 +7,23 @@ var _ = require('lodash');
 
 var CHANGE_EVENT = "change";
 
-var images = [];
+var images   = [];
+var uniqueId = 0;
 
 function addImage (image) {
   images.push(image);
 }
 
 function removeImage (index) {
-  images.slice(index, 1);
+  images = _.remove(images, function(image) {
+    return image.id === index;
+  });
 }
 
 function createImage (url) {
   return {
     url: url,
-    id: images.length
+    id: ++uniqueId
   };
 }
 
